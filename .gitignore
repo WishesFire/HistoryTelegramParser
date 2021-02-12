@@ -1,0 +1,5 @@
+config.ini
+.idea/
+__pycache__/
+venv/
+maks0z1.session
