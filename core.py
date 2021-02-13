@@ -1,5 +1,5 @@
 from telethon import TelegramClient
-from handlers import main
+from get_data import main
 import configparser
 
 # Get config telegram
@@ -14,5 +14,11 @@ if __name__ == '__main__':
 
     client = TelegramClient(username_tg, api_tg, hash_tg)
     client.start()
-    with client:
-        client.loop.run_until_complete(main(client, username_tg))
+    # якщо для 4 функції то треба
+    #client.run_until_disconnected()
+
+    try:
+        with client:
+            client.loop.run_until_complete(main(client, username_tg))
+    except OSError:
+        print('Bad connection with main handlers')

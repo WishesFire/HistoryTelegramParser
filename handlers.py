@@ -1,20 +1,17 @@
-async def main(client, username):
-    async for dialog in client.iter_dialogs():
-        print(dialog)
-        break
+from datetime import datetime
 
 
-def long_message():
+async def long_message():
     pass
 
 
-def correspond_user():
+async def correspond_user():
     pass
 
 
-def history_messages():
+async def history_messages():
     pass
 
 
-def online_message():
+async def online_message():
     pass
