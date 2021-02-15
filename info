@@ -1,9 +1,6 @@
-1 long_message() - get the longest message  +  statistic       ------ ❌
-2 correspond_user() - get the user with whom you correspond the most  +  statistic top 10     ------ ❌
+1 long_message() - get the longest message  +  statistic       ------ ✔
+2 correspond_user() - get the user with whom you correspond the most  +  statistic top 10     ------ ✔❌
 3 history_messages() - how long to send a message to each user (exact user) +  statistic     ------ ❌
 4 online_message() - if someone shows up from online to write to him      ------ ❌
-
-
-
 
 Create tasks and save in csv
