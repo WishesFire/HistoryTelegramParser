@@ -14,11 +14,9 @@ if __name__ == '__main__':
 
     client = TelegramClient(username_tg, api_tg, hash_tg)
     client.start()
-    # якщо для 4 функції то треба
-    #client.run_until_disconnected()
 
     try:
         with client:
-            client.loop.run_until_complete(main(client, username_tg))
+            client.loop.run_until_complete(main(client))
     except OSError:
         print('Bad connection with main handlers')

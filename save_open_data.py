@@ -1,8 +1,11 @@
 import csv
+import json
+from config import BASEDIR_MAIN, BASEDIR_STAT
+import pandas as pd
 
 
 async def save_messages_to_csv(name, title, temp_history):
-    with open(f'E:\\Python3\\TelegramParser\\data\\{name}.csv',
+    with open(f'{BASEDIR_MAIN}\\{name}.csv',
               mode='a', encoding='utf-8') as w_file:
         file_writer = csv.DictWriter(w_file, delimiter=',', lineterminator='\r',
                                      fieldnames=title)
@@ -10,7 +13,32 @@ async def save_messages_to_csv(name, title, temp_history):
         file_writer.writerows(temp_history)
 
 
-async def open_message_csv(name):
-    with open(f'E:\\Python3\\TelegramParser\\data\\{name}.csv', mode='r', encoding='utf-8') as w_file:
-        # TODO функция статистика
-        pass
+def open_message_csv(name):
+    with open(f'{BASEDIR_MAIN}\\{name}.csv', mode='r', encoding='utf-8') as w_file:
+        file_reader = csv.reader(w_file, delimter=',')
+    return file_reader
+
+
+def open_pd_csv(name):
+    dm = pd.read_csv(f'{BASEDIR_MAIN}\\{name}.csv', parse_dates=['Время'])
+    dm.set_index('date', inplace=True)
+    return dm
+
+
+async def save_static_data(the_longest_message, the_most_counted_message):
+    with open(f'{BASEDIR_STAT}\\LongMessage.txt', mode='w', encoding='utf-8') as file:
+        file.write(the_longest_message)
+    with open(f'{BASEDIR_STAT}\\CountMessage.txt', mode='w', encoding='utf-8') as file:
+        file.write(json.dumps(the_most_counted_message))
+
+
+def open_static_data():
+    with open(f'{BASEDIR_STAT}\\CountMessage.txt', mode='r', encoding='utf-8') as file:
+        a = file.read()
+    return a
+
+
+def open_static_data_js():
+    with open(f'{BASEDIR_STAT}\\CountMessage.txt', mode='r', encoding='utf-8') as file:
+        a = json.load(file)
+    return a
