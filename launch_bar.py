@@ -1,4 +1,4 @@
-from handlers import correspond_user_statistic, history_messages
+from handlers.handler import history_messages, correspond_user_statistic
 
 
 if __name__ == '__main__':

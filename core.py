@@ -1,5 +1,5 @@
 from telethon import TelegramClient
-from get_data import main
+from handlers.get_data import main
 import configparser
 
 # Get config telegram

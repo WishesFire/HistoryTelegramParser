@@ -1,7 +1,4 @@
 1 long_message() - get the longest message  ------ ✔
 2 correspond_user() - get the user with whom you correspond the most  +  statistic top 10 + dash     ------ ✔
-3 history_messages() - how long to send a message to each user (exact user) +
-            statistic(Календарная тепловая карта (exact user) по годинам відправлення в день)     ------ ❌
-
-python dash
-statistic
+3 history_messages() - statistic(Календарная тепловая карта (exact user) по годинам відправлення в день) ------ ✔
+4 dash ---- ✔

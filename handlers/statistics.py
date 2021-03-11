@@ -1,7 +1,6 @@
 import numpy as np
-import calmap
+import calplot
 import matplotlib.pyplot as plt
-from datetime import datetime
 
 
 class Graphics:
@@ -11,13 +10,9 @@ class Graphics:
         component_histogram.run()
 
     @staticmethod
-    def build_histogram_dash(data):
-        component_calendar = HeatMap(data)
-        component_calendar.run()
-
-    @staticmethod
     def calendar_heat_map(data):
-        pass
+        component_calendar = CalendarHeatMap(data)
+        component_calendar.run()
 
 
 class Histogram:
@@ -70,23 +65,19 @@ class Histogram:
         return 'Создание гистограммы'
 
 
-class HistogramDash:
-    pass
-
-
-class HeatMap:
+class CalendarHeatMap:
     def __init__(self, data):
         self.data = data
-        self._prepare_date()
-
-    def _prepare_date(self):
-        pass
+        self._create()
 
     def _create(self):
-        plt.figure(figsize=(16, 10), dpi=80)
-        calmap.calendarplot(self.data, fig_kws={'figsize': (16, 10)},
-                            yearlabel_kws={'color': 'black', 'fontsize': 14}, subplot_kws={'title': 'Yahoo Stock Prices'})
+        calplot.calplot(self.data, edgecolor=None, cmap='YlGn')
+        #calmap.calendarplot(self.data, fig_kws={'figsize': (16, 10)},
+                            #yearlabel_kws={'color': 'black', 'fontsize': 14}, subplot_kws={
+                                                                                    #'title': 'Date of correspondence'})
+
 
     @staticmethod
     def run():
         plt.show()
+
